@@ -1,0 +1,265 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Regular"), url("assets/fonts/Roboto-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Bold"), url("assets/fonts/Roboto-Bold.ttf");
+  font-weight: 700;
+}
+
+:root {
+  --red: hsl(4, 100%, 67%);
+  --accent: hsl(15, 100%, 61%);
+  --blue-800: hsl(234, 29%, 20%);
+  --blue-700: hsl(235, 18%, 26%);
+  --gray: hsl(0, 0%, 58%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-regular: 400;
+  --font-bold: 700;
+
+  --font-size-200: 0.75rem; /* 12px */
+  --font-size-300: 1rem; /* 16px */
+  --font-size-500: 2.5rem; /* 40px */
+  --font-size-700: 3.5rem; /* 56px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto";
+  font-size: var(--font-size-300);
+  line-height: 1.5;
+  color: var(--blue-800);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue-800);
+}
+
+/* Newsletter Card */
+
+.newsletter-cta {
+  max-width: 53.125rem;
+  background-color: var(--white);
+  margin: 1rem auto;
+}
+
+.newsletter-cta img {
+  margin-inline: auto;
+  max-width: 37.5rem;
+  min-width: 18.75rem;
+  width: 100%;
+  justify-self: center;
+}
+
+.newsletter-cta__content {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, calc(10vw + 1rem), 3.5rem);
+  font-weight: var(--font-bold);
+  white-space: nowrap;
+}
+
+.checkmak-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.checkmark-list li {
+  display: grid;
+  grid-template-columns: 2.5rem auto;
+}
+
+.checkmark-list li::before {
+  content: url("/assets/images/icon-list.svg");
+}
+
+/* Newsletter Form */
+
+.newsletter-cta__form {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font: inherit;
+  border: 1px solid var(--gray);
+}
+
+input::placeholder {
+  color: var(--gray);
+}
+
+input:not(:focus):invalid {
+  background: hsl(5, 64%, 92%);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  font-size: var(--font-size-200);
+}
+.form-group > .error {
+  grid-row: 1;
+  grid-column: 2;
+  text-align: end;
+  display: none;
+  color: var(--accent);
+}
+
+.form-group > :not(:focus):invalid + .error {
+  display: block;
+}
+
+.form-group.error-field {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group.error-field > input {
+  grid-column: 1/-1;
+}
+
+form {
+  isolation: isolate;
+}
+
+/* Newsletter Button */
+
+.button {
+  color: var(--white);
+  background: var(--blue-800);
+  font: inherit;
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-300);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 0;
+}
+
+.button:hover,
+.button:focus-visible {
+  position: relative;
+  background-image: linear-gradient(90deg, #ff6a3a, #ff527b);
+}
+
+.button:hover::after,
+.button:focus-visible::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: inherit;
+  inset: 0;
+  border-radius: inherit;
+  translate: 0 0.5rem;
+  filter: blur(0.5rem);
+  opacity: 0.5;
+}
+
+/* Success Popup Card */
+
+.success-popup {
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  padding: 9.31rem 1.5rem 4.38rem 1.5rem;
+  max-width: 31.5rem;
+  height: 100vh;
+  align-content: space-between;
+  align-items: end;
+}
+
+.success-popup__content {
+  display: grid;
+  gap: 2rem;
+}
+
+.success-popup h2 {
+  text-wrap: balance;
+  line-height: 100%;
+}
+
+.success-popup__button {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media Querries */
+
+@media (min-width: 450px) {
+  .newsletter-cta {
+    padding: 2.5rem;
+    border-radius: 2.25rem;
+  }
+
+  .newsletter-cta picture img {
+    border-radius: 1rem;
+  }
+
+  .success-popup:not(.hidden) {
+    display: grid;
+    padding: 4rem;
+    max-width: 31.5rem;
+    height: 32.5rem;
+    border-radius: 2.5rem;
+  }
+}
+
+@media (min-width: 40.625rem) {
+  .newsletter-cta {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 0.75fr;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .newsletter-cta__content {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0 4rem 0 0;
+  }
+
+  .newsletter-cta picture {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}

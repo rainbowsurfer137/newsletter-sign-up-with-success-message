@@ -51,7 +51,7 @@ ol[role="list"] {
 }
 
 body {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: var(--font-size-300);
   line-height: 1.5;
   color: var(--blue-800);
@@ -67,12 +67,10 @@ body {
 .newsletter-cta {
   max-width: 53.125rem;
   background-color: var(--white);
-  /* margin: auto; */
   display: grid;
   grid-template-rows: auto auto;
   height: 100vh;
   align-content: start;
-  /* align-items: end; */
 }
 
 .newsletter-cta img {
@@ -114,7 +112,7 @@ body {
 .newsletter-cta__form {
   display: grid;
   gap: 1.5rem;
-  margin-top: 1.25rem;
+  margin-block-start: 1.25rem;
 }
 
 input {
@@ -230,7 +228,7 @@ form {
 
 /* Media Querries */
 
-@media (min-width: 450px) {
+@media (min-width: 28.125rem) {
   .newsletter-cta {
     padding: 2.5rem;
     border-radius: 2.25rem;

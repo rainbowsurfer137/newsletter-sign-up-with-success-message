@@ -106,7 +106,7 @@ body {
 }
 
 .checkmark-list li::before {
-  content: url("/assets/images/icon-list.svg");
+  content: url("./assets/images/icon-list.svg");
 }
 
 /* Newsletter Form */
@@ -222,6 +222,7 @@ form {
 .success-popup__button {
   width: 100%;
 }
+
 
 .hidden {
   display: none;

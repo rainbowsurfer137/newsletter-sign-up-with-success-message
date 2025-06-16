@@ -67,7 +67,12 @@ body {
 .newsletter-cta {
   max-width: 53.125rem;
   background-color: var(--white);
-  margin: 1rem auto;
+  /* margin: auto; */
+  display: grid;
+  grid-template-rows: auto auto;
+  height: 100vh;
+  align-content: start;
+  /* align-items: end; */
 }
 
 .newsletter-cta img {
@@ -202,7 +207,6 @@ form {
   max-width: 31.5rem;
   height: 100vh;
   align-content: space-between;
-  align-items: end;
 }
 
 .success-popup__content {
@@ -229,6 +233,7 @@ form {
   .newsletter-cta {
     padding: 2.5rem;
     border-radius: 2.25rem;
+    height: auto;
   }
 
   .newsletter-cta picture img {

@@ -123,7 +123,7 @@ input::placeholder {
   color: var(--gray);
 }
 
-input:not(:focus):invalid {
+input.error {
   background: hsl(5, 64%, 92%);
   color: var(--accent);
   border: 1px solid var(--accent);
@@ -134,7 +134,8 @@ input:not(:focus):invalid {
   gap: 0.5rem;
   font-size: var(--font-size-200);
 }
-.form-group > .error {
+
+.form-group > .error-message {
   grid-row: 1;
   grid-column: 2;
   text-align: end;
@@ -142,7 +143,7 @@ input:not(:focus):invalid {
   color: var(--accent);
 }
 
-.form-group > :not(:focus):invalid + .error {
+.form-group > :not(:focus):invalid + .error-message {
   display: block;
 }
 

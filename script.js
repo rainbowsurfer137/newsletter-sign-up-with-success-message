@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const isValid = emailInput.checkValidity();
+   const emailValue = emailInput.value.trim();
+  const isValid = emailValue !== "" && emailValue.includes("@");
 
     if (!isValid) {
       emailInput.classList.add("error");
+      emailInput.nextElementSibling.style.display = "block";
       return;
     }
 
@@ -21,8 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const dismissBtn = document.getElementById("dismissBtn");
   dismissBtn.addEventListener("click", () => {
     successPopup.classList.add("hidden");
-    newsletterCta.style.display = "block";
+    newsletterCta.style.display = "";
     form.reset();
+    emailInput.classList.remove("error");
+  emailInput.nextElementSibling.style.display = "none";
   });
   
 });
